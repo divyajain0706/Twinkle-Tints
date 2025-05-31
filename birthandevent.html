@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday & Event Reminder</title>
+    <style>
+        /* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Main container styling */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e01e1e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input and select styles */
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    padding: 10px;
+    background-color: #f0f5f8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #f0f5f8;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Birthday & Event Reminder</h1>
+        <form id="reminderForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="type">Type:</label>
+            <select id="type" name="type" required>
+                <option value="Birthday">Birthday</option>
+                <option value="Event">Event</option>
+            </select>
+
+            <button type="submit">Add Reminder</button>
+        </form>
+
+        <h2>Upcoming Reminders</h2>
+        <table id="reminderTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Reminders will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('reminderForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get form values
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const type = document.getElementById('type').value;
+
+    // Add a new row to the table
+    const table = document.getElementById('reminderTable').querySelector('tbody');
+    const newRow = table.insertRow();
+
+    const nameCell = newRow.insertCell(0);
+    const dateCell = newRow.insertCell(1);
+    const typeCell = newRow.insertCell(2);
+
+    nameCell.textContent = name;
+    dateCell.textContent = date;
+    typeCell.textContent = type;
+
+    // Clear the form
+    document.getElementById('reminderForm').reset();
+});
+
+    </script>
+</body>
+</html>
