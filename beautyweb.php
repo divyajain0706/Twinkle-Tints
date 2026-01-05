@@ -120,8 +120,8 @@
 }
 
 #chatbot-toggle{
-    position: fixed;
-    bottom: 300px;
+    position: absolute;
+    top : 45%;
     right: 20px;
     background: #ff5da2;
     color: #fff;
@@ -141,11 +141,11 @@
         <li><a href="brushesandtools.php">BRUSHES&TOOLS</a></li>
         <li><a href="fragrance.php">FRAGRANCE</a></li>
         
+
       </ul>
 
 
       <!-- ================= CHATBOT UI ================= -->
-
 <button id="chatbot-toggle" onclick="toggleChatbot()">💬 AI</button>
 
 <div id="chatbot-container">
