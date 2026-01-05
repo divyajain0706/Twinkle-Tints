@@ -32,7 +32,7 @@
 /* Chatbot Theme matches existing pink aesthetic */
 #chatbot-container{
     position: fixed;
-    bottom: 20px;
+    bottom: 50px;
     right: 20px;
     width: 320px;
     background: #fff;
@@ -93,8 +93,8 @@
 }
 
 #chatbot-toggle{
-    position: fixed;
-    bottom: 20px;
+    position: absolute;
+    top : 45%;
     right: 20px;
     background: #ff5da2;
     color: #fff;
@@ -114,11 +114,11 @@
         <li><a href="brushesandtools.php">BRUSHES&TOOLS</a></li>
         <li><a href="fragrance.php">FRAGRANCE</a></li>
         
+
       </ul>
 
 
       <!-- ================= CHATBOT UI ================= -->
-
 <button id="chatbot-toggle" onclick="toggleChatbot()">💬 AI</button>
 
 <div id="chatbot-container">
@@ -174,4 +174,17 @@ function sendMessage(){
         chatBody.innerHTML += `<div class="bot-msg">Something went wrong 😔</div>`;
     });
 }
+
+document.addEventListener("click", function (event) {
+    const chatbot = document.getElementById("chatbot-container");
+    const toggleBtn = document.getElementById("chatbot-toggle");
+
+    if (
+        chatbot.style.display === "flex" &&
+        !chatbot.contains(event.target) &&
+        !toggleBtn.contains(event.target)
+    ) {
+        chatbot.style.display = "none";
+    }
+});
 </script>
