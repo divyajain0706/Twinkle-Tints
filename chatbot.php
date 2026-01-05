@@ -51,7 +51,7 @@ $result = $conn->query($productQuery);
 
 $dynamicCatalog = "";
 while($row = $result->fetch_assoc()) {
-    $dynamicCatalog .= "• [" . $row['cat'] . "] " . $row['product_name'] . " - $" . $row['price'] . "\n";
+    $dynamicCatalog .= "• [" . $row['cat'] . "] " . $row['product_name'] . " - Rs." . $row['price'] . "\n";
 }
 
 // 3. Update the Payload to use $dynamicCatalog
