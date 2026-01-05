@@ -13,8 +13,6 @@
         </div>
         
                  
-        
-        
         <!--Nav-buttons-->
         <div class="nav-btns">
 
@@ -29,6 +27,85 @@
             </a>
         </div>
 </nav>
+
+<style>
+/* Chatbot Theme matches existing pink aesthetic */
+#chatbot-container{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    font-family: inherit;
+}
+
+#chatbot-header{
+    background: #ff5da2;
+    color: #fff;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+}
+
+#chatbot-body{
+    padding: 10px;
+    height: 250px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.user-msg{
+    text-align: right;
+    margin: 6px 0;
+    color: #333;
+}
+
+.bot-msg{
+    text-align: left;
+    margin: 6px 0;
+    color: #ff5da2;
+}
+
+#chatbot-input{
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+#chatbot-message{
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+#chatbot-send{
+    background: #ff5da2;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#chatbot-toggle{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff5da2;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 998;
+}
+</style>
+
     <ul class="nav-links">
     <li><a href="beautyweb.php">HOME</a></li>
         <li><a href="makeup.php">MAKEUP</a></li>
@@ -42,36 +119,46 @@
 
       <!-- ================= CHATBOT UI ================= -->
 
-<div id="chatbot-container">
-    <div id="chatbot-header">
-        Twinkle Tints Assistant 💄
-        <span onclick="toggleChatbot()">✖</span>
-    </div>
+<button id="chatbot-toggle" onclick="toggleChatbot()">💬 AI</button>
 
-    <div id="chatbot-body"></div>
+<div id="chatbot-container">
+    <div id="chatbot-header">Twinkle AI ✨</div>
+
+    <div id="chatbot-body">
+        <div class="bot-msg">Hi! How can I help you today 💄</div>
+    </div>
 
     <div id="chatbot-input">
-        <input type="text" id="chatbot-message" placeholder="Ask about beauty & skincare...">
-        <button onclick="sendChatbotMessage()">Send</button>
+        <input type="text" id="chatbot-message" placeholder="Ask me anything...">
+        <button id="chatbot-send">Send</button>
     </div>
 </div>
+
 
 <!-- ================= CHATBOT SCRIPT ================= -->
 
 <script>
-function toggleChatbot() {
-    const bot = document.getElementById("chatbot-container");
-    bot.style.display = bot.style.display === "block" ? "none" : "block";
+function toggleChatbot(){
+    const chatbot = document.getElementById("chatbot-container");
+    chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
 }
 
-function sendChatbotMessage() {
-    const input = document.getElementById("chatbot-message");
-    const message = input.value.trim();
-    if (message === "") return;
+const sendBtn = document.getElementById("chatbot-send");
+const input = document.getElementById("chatbot-message"); // ✅ FIXED LINE
+const chatBody = document.getElementById("chatbot-body");
 
-    const chatBody = document.getElementById("chatbot-body");
+sendBtn.addEventListener("click", sendMessage);
+input.addEventListener("keypress", function(e){
+    if(e.key === "Enter") sendMessage();
+});
+
+function sendMessage(){
+    const message = input.value.trim();
+    if(message === "") return;
+
     chatBody.innerHTML += `<div class="user-msg">${message}</div>`;
     input.value = "";
+    chatBody.scrollTop = chatBody.scrollHeight;
 
     fetch("chatbot.php", {
         method: "POST",
@@ -82,6 +169,9 @@ function sendChatbotMessage() {
     .then(data => {
         chatBody.innerHTML += `<div class="bot-msg">${data.reply}</div>`;
         chatBody.scrollTop = chatBody.scrollHeight;
+    })
+    .catch(() => {
+        chatBody.innerHTML += `<div class="bot-msg">Something went wrong 😔</div>`;
     });
 }
 </script>
