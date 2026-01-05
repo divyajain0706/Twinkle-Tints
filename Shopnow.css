@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.product-details {
+    display: flex;
+    background-color: #fdacc4;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 80% !important;
+    height: 30rem !important;
+
+}
+
+.product-image img {
+    max-width: 400px;
+    border-radius: 8px;
+    height: 20rem;
+    padding-left: 4rem;
+    margin-top: 4rem;
+}
+
+.product-info {
+    margin-left: 85px;
+    margin-top: 35px;
+}
+
+.product-info h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    margin-bottom: 20px;
+}
+
+.skin-type {
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.size-selection {
+    margin-bottom: 20px;
+}
+
+.add-to-cart{
+    background-color: #333;
+        color: #fff;
+        cursor: pointer;
+        text-transform: uppercase;
+     text-decoration: none;
+     padding: 10px 30px;
+     border: 1px solid;
+     border-radius: 1000px;
+     display: inline-block;
+     transition: all .2s;
+     position: relative;
+     margin-top: 30px;
+    }
+    .add-to-cart:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+       }
+    .add-to-cart:active {
+        transform: translateY(-3px);
+       }
+.shop-now{
+background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+ text-decoration: none;
+ padding: 10px 30px;
+ border: 1px solid;
+ border-radius: 1000px;
+ display: inline-block;
+ transition: all .2s;
+ position: relative;
+}
+.shop-now:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
+   }
+.shop-now:active {
+    transform: translateY(-3px);
+   }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://127.0.0.1:5500/loginform.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        /** {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }*/
+        body {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+           background-color: #f0f0f0;
+}
+        h1{
+            font-family: Helvetica;
+            font-weight: 100;
+            font-size: 30px;
+            padding: 3px;
+            text-align: center;
+            background-color: rgb(224, 27, 93);
+            color: white;
+            border-radius: 18px;
+        }
+        .main-form{
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-form{
+            width: 330px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .login-form p{
+            color: rgb(231, 122, 141);
+        }
+        .form-group input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ff69a3;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 25%;
+            margin-bottom: 9px;
+        }
+
+        button:hover {
+            background-color: #b30036;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-form">
+      <form class="login-form">
+         <h1>Sign In</h1>
+         <p>Create an Account</p>
+
+        <div class="form-group">  
+            <label for="username">Username or Email:</label><br>
+            <input type="text" id="username" name="username" placeholder="Enter username"><br>
+        </div>
+        
+       <div class="form-group"> 
+            <label for="password">Password:</label><br>
+             <input type="number" id="password" name="password" placeholder="password"><br><br>
+        </div>
+
+            <button>Login</button>
+
+       <div>
+           <b>Lost your password ?</b>
+       </div>
+
+    </form></div>
+    
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

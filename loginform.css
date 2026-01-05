@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*background-color: #f1b7b7;*/
+    background-image: url('Images/loginbackimg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+ }
+
+ h1{
+     font-family: Helvetica;
+     font-weight: 100;
+     font-size: 30px;
+     padding: 3px;
+     text-align: center;
+     background-color: rgb(224, 27, 93);
+     color: white;
+     border-radius: 18px;
+ }
+
+ .main-form{
+     background: #fff;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .login-form{
+     width: 330px;
+ }
+
+ .form-group {
+     margin-bottom: 15px;
+ }
+
+ .form-group label {
+     display: block;
+     margin-bottom: 5px;
+     color: #333;
+ }
+
+ .login-form p{
+     color: rgb(231, 122, 141);
+ }
+
+ .form-group input {
+     width: 90%;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     font-size: 16px;
+ }
+
+ button {
+     width: 50%;
+     padding: 10px;
+     border: none;
+     border-radius: 20px;
+     background-color: #ff69a3;
+     color: #fff;
+     font-size: 16px;
+     cursor: pointer;
+     margin-left: 25%;
+     margin-bottom: 9px;
+ }
+
+ button:hover {
+     background-color: #b30036;
+ }
