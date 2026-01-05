@@ -69,7 +69,7 @@
 .bot-msg{
     text-align: left;
     margin: 6px 0;
-    color: #ff5da2;
+    color: #b90c57ff;
 }
 
 #chatbot-input{
